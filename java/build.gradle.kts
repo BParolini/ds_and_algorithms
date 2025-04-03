@@ -1,6 +1,6 @@
 plugins { java }
 
-java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+java { toolchain { languageVersion = JavaLanguageVersion.of(23) } }
 
 repositories { mavenCentral() }
 
@@ -9,6 +9,4 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.12.1")
 }
 
-tasks.compileJava {
-    options.isFailOnError = false
-}
+tasks.compileJava { options.isFailOnError = false }
