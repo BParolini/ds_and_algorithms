@@ -1,19 +1,12 @@
-all:
-	make go
-	make java
-	make python
+.PHONY: all go_test java_test python_test
 
-go:
-	cd go
-	go test .../.
-	cd ..
+all: go_test java_test python_test
 
-java:
-	cd java
-	gradle test
-	cd ..
+go_test:
+	cd go && go test ./...
 
-python:
-	cd python
-	python -m pytest -s -c tests/pytest.ini ./src
-	cd ..
+java_test:
+	cd java && ./gradlew test
+
+python_test:
+	cd python && python -m pytest -s -c tests/pytest.ini ./src
