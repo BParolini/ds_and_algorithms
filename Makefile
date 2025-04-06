@@ -1,4 +1,4 @@
-.PHONY: all go_test java_test python_test
+.PHONY: all go_test java_test python_install python_test
 
 all: go_test java_test python_test
 
@@ -12,7 +12,16 @@ java_test:
 	@cd java && ./gradlew test
 	@echo
 
-python_test:
+python_install:
+	@cd python && \
+		python3.13 -m venv .venv && \
+		source .venv/bin/activate && \
+		python -m pip install -U pipenv && \
+		pipenv install --dev
+
+python_test: python_install
 	@echo "Running Python tests"
-	@cd python && pipenv install --dev && source .venv/bin/activate && python -m pytest -s -c tests/pytest.ini
+	@cd python && \
+		source .venv/bin/activate && \
+		python -m pytest -s -c tests/pytest.ini
 	@echo
