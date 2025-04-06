@@ -1,0 +1,14 @@
+name: "Run Tests"
+on:
+  push:
+    branches: ["*"]
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Go tests"
+        run: make go_tests
+      - name: "Java tests"
+        run: make java_tests
+      - name: "Python tests"
+        run: make python_tests
