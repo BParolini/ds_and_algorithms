@@ -6,5 +6,6 @@ python_test: python_install
 	@echo
 
 python_install:
-	@python3.13 -m pip install --upgrade pip pipenv "pipenv==2024.2.0" wheel setuptools
-	@python3.13 -m pipenv install --system --dev
+	@python3.13 -m pip install --upgrade pip pipenv wheel setuptools
+	ls
+	@pipenv install --system --dev
