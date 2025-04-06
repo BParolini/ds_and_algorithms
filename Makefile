@@ -14,5 +14,5 @@ java_test:
 
 python_test:
 	@echo "Running Python tests"
-	@cd python && source .venv/bin/activate && python -m pytest -s -c tests/pytest.ini
+	@cd python && pipenv install --dev && source .venv/bin/activate && python -m pytest -s -c tests/pytest.ini
 	@echo
