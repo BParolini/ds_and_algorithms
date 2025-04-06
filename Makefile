@@ -3,10 +3,16 @@
 all: go_test java_test python_test
 
 go_test:
-	cd go && go test ./...
+	@echo "Running Go tests"
+	@cd go && go test ./...
+	@echo
 
 java_test:
-	cd java && ./gradlew test
+	@echo "Running Java tests"
+	@cd java && ./gradlew test
+	@echo
 
 python_test:
-	cd python && python -m pytest -s -c tests/pytest.ini ./src
+	@echo "Running Python tests"
+	@cd python && source .venv/bin/activate && python -m pytest -s -c tests/pytest.ini
+	@echo
