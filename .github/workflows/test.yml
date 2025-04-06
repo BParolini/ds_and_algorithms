@@ -7,9 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "^1.24.0"
       - name: "Go tests"
         run: make go_test
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "23"
       - name: "Java tests"
         run: make java_test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
       - name: "Python tests"
         run: make python_test
