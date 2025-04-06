@@ -6,6 +6,7 @@ jobs:
   Tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: "Go tests"
         run: make go_test
       - name: "Java tests"
