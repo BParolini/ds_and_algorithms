@@ -14,14 +14,11 @@ java_test:
 
 python_install:
 	@cd python && \
-		python3.13 -m venv .venv && \
-		source .venv/bin/activate && \
-		python -m pip install -U pipenv && \
-		pipenv install --dev
+		python3.13 -m pip install --upgrade pip pipenv "pipenv==2024.2.0" wheel setuptools && \
+		python3.13 -m pipenv install --system --dev
 
 python_test: python_install
 	@echo "Running Python tests"
 	@cd python && \
-		source .venv/bin/activate && \
 		python -m pytest -s -c tests/pytest.ini
 	@echo
