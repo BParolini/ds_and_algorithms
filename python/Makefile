@@ -2,7 +2,7 @@
 
 python_test: python_install
 	@echo "Running Python tests"
-	@python -m pytest -s -c tests/pytest.ini
+	@pipenv run pytest -s -c tests/pytest.ini
 	@echo
 
 python_install:
