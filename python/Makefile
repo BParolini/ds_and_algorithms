@@ -8,4 +8,4 @@ python_test: python_install
 python_install:
 	@python3.13 -m pip install --upgrade pip pipenv wheel setuptools
 	ls
-	@pipenv install --system --dev
+	@pipenv install --dev
