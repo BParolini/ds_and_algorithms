@@ -1,16 +1,14 @@
 package leetcode
 
-import "slices"
-
 func containsDuplicate(nums []int) bool {
-	item := make([]int, len(nums))
+	set := make(map[int]struct{})
 
 	for _, num := range nums {
-		if slices.Contains(item, num) {
+		if _, hasNum := set[num]; hasNum {
 			return true
 		}
 
-		item = append(item, num)
+		set[num] = struct{}{}
 	}
 
 	return false

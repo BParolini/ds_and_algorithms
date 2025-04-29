@@ -19,3 +19,15 @@ func TestContainsDuplicate3(t *testing.T) {
 		t.Errorf("expected true, got false")
 	}
 }
+
+func TestContainsDuplicate4(t *testing.T) {
+	if containsDuplicate([]int{0}) {
+		t.Errorf("expected false, got true")
+	}
+}
+
+func TestContainsDuplicate5(t *testing.T) {
+	if containsDuplicate([]int{1, 5, -2, -4, 0}) {
+		t.Errorf("expected false, got true")
+	}
+}

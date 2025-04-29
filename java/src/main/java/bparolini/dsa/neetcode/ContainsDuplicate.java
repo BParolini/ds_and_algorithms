@@ -8,11 +8,9 @@ public class ContainsDuplicate {
         Set<Integer> item = new HashSet<Integer>();
 
         for (int num : nums) {
-            if (item.contains(num)) {
+            if (!item.add(num)) {
                 return true;
             }
-
-            item.add(num);
         }
 
         return false;
